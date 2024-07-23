@@ -1,24 +1,9 @@
-// Query selector to reference images
-const ken = document.querySelector('img[alt="ken"]');
+import { Fighter } from './fighter.js';
 
-// Variable setup
-const position = {
-    x: 80, 
-    y: 110,
-};
+export class Ken extends Fighter {
+    constructor(x, y, velocity) {
+        super('Ken', x, y, velocity);
 
-let velocity = -1;
-
-export function updateKen(context) {
-    // Movement logic
-    position.x += velocity;
-            
-    if (position.x > context.canvas.width - ken.width|| position.x < 0) {
-        velocity = -velocity;
+        this.image = document.querySelector('img[alt="ken"]');
     }
-}
-
-export function drawKen(context) {
-    // Draw image
-    context.drawImage(ken, position.x, position.y);
 }

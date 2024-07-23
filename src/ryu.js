@@ -1,24 +1,9 @@
-// Query selector to reference images
-const ryu = document.querySelector('img[alt="ryu"]');
+import { Fighter } from './fighter.js';
 
-// Variable setup
-const position = {
-    x: 80, 
-    y: 110,
-};
+export class Ryu extends Fighter {
+    constructor(x, y, velocity) {
+        super('Ryu', x, y, velocity);
 
-let velocity = 1;
-
-export function updateRyu(context) {
-    // Movement logic
-    position.x += velocity;
-            
-    if (position.x > context.canvas.width - ryu.width|| position.x < 0) {
-        velocity = -velocity;
+        this.image = document.querySelector('img[alt="ryu"]')
     }
-}
-
-export function drawRyu(context) {
-    // Draw ryu element
-    context.drawImage(ryu, position.x, position.y);
 }
